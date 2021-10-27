@@ -1,0 +1,10 @@
+What is the difference between val and var in Kotlin?
+Variables declared with val are final, those with var are not.
+Variables declared with var are final, those with val are not.
+Var variables cannot be initialized late.
+Val variables can be initialized late.
+What are Kotlin coroutines?
+They provide asynchronous code without thread blocking.
+It's Kotlin's term for class methods.
+These are functions which accept other functions as arguments or return them.
+That's how the automatically generated methods hashCode() and equals() in data classes are called.
