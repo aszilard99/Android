@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigationMenu"
+            android:title="Menu">
+            <menu>
+                <item
+                    android:id="@+id/home"
+                    android:title="home" />
+
+                <item
+                    android:id="@+id/quiz"
+
+                    android:title="quiz" />
+
+            </menu>
+        </item>
+    </group>
+</menu>

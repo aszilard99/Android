@@ -27,6 +27,15 @@
             app:destination="@id/quizStart" />
     </fragment>
     <fragment
+        android:id="@+id/home2"
+        android:name="com.example.lab05.ui.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_quizStart"
+            app:destination="@id/quizStart" />
+    </fragment>
+    <fragment
         android:id="@+id/quizEndFragment"
         android:name="com.example.lab05.ui.QuizEndFragment"
         android:label="fragment_quiz_end"
