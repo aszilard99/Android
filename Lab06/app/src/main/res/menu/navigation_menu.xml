@@ -8,13 +8,17 @@
             android:title="Menu">
             <menu>
                 <item
-                    android:id="@+id/home"
+                    android:id="@+id/homeMenuItem"
                     android:title="home" />
 
                 <item
-                    android:id="@+id/quiz"
+                    android:id="@+id/quizMenuItem"
 
                     android:title="quiz" />
+                <item
+                    android:id="@+id/profileMenuItem"
+
+                    android:title="profile" />
 
             </menu>
         </item>

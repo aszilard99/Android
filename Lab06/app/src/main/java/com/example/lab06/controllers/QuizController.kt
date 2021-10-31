@@ -1,7 +1,8 @@
-package com.example.lab06
+package com.example.lab06.controllers
 
 import android.util.Log
 import android.view.View
+import com.example.lab06.R
 import com.example.lab06.models.Answer
 import com.example.lab06.models.Question
 import java.io.BufferedReader

@@ -1,4 +1,4 @@
-package com.example.lab06.ui
+package com.example.lab06.controllers
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,7 +13,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.lab06.QuizController
 import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
 import com.example.lab06.models.Question

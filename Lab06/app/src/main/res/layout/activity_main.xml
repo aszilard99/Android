@@ -28,10 +28,14 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="top_app_bar"
+                app:title="@string/Menu"
                 style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
                 android:background="@android:color/transparent"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 android:elevation="0dp" />
+
+
 
         </com.google.android.material.appbar.AppBarLayout>
 

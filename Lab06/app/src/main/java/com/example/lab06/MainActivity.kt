@@ -12,8 +12,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var drawerLayout : DrawerLayout
     lateinit var navigationView : NavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initializeView()
+        initMenu()
     }
 
     private fun initializeView(){
@@ -22,16 +25,21 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationView)
     }
     private fun initMenu(){
+        //nem igazán tudom a topAppBar miért nem működik, vagy hogy kéne működjön
         topAppBar.setNavigationOnClickListener{
             drawerLayout.open()
         }
+
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true
 
             when(menuItem.itemId) {
-                R.id.home -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.home2)
-                R.id.quiz -> Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.quiz)
+                R.id.homeMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.homeFragment)
+                R.id.quizMenuItem -> Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.quizStartFragment)
+                R.id.profileMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.profileFragment)
             }
+            menuItem.setChecked(false)
             drawerLayout.close()
             true
         }

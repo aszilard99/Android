@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/quizStart">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/quizStart"
-        android:name="com.example.lab06.ui.QuizStart"
+        android:id="@+id/quizStartFragment"
+        android:name="com.example.lab06.controllers.QuizStartFragment"
         android:label="fragment_quiz_start"
         tools:layout="@layout/fragment_quiz_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
-        android:name="com.example.lab06.ui.QuestionFragment"
+        android:name="com.example.lab06.controllers.QuestionFragment"
         android:label="fragment_question"
         tools:layout="@layout/fragment_question" >
         <action
@@ -24,24 +24,39 @@
             app:destination="@id/quizEndFragment" />
         <action
             android:id="@+id/action_questionFragment_to_quizStart"
-            app:destination="@id/quizStart" />
+            app:destination="@id/quizStartFragment" />
     </fragment>
     <fragment
-        android:id="@+id/home2"
-        android:name="com.example.lab06.ui.Home"
+        android:id="@+id/homeFragment"
+        android:name="com.example.lab06.controllers.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home2_to_quizStart"
-            app:destination="@id/quizStart" />
+            app:destination="@id/quizStartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizEndFragment"
-        android:name="com.example.lab06.ui.QuizEndFragment"
+        android:name="com.example.lab06.controllers.QuizEndFragment"
         android:label="fragment_quiz_end"
         tools:layout="@layout/fragment_quiz_end" >
         <action
             android:id="@+id/action_quizEndFragment_to_quizStart"
-            app:destination="@id/quizStart" />
+            app:destination="@id/quizStartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.lab06.controllers.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_quizStartFragment"
+            app:destination="@id/quizStartFragment" />
     </fragment>
 </navigation>
