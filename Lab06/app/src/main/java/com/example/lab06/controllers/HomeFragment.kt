@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,7 +25,7 @@ class Home : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var startQuizButton : Button
     // a fragmenteknek saját viselkedést adtam a back gomb megnyomásakor, és
     // valószínűleg a back stacken emiatt kavarodás van és a home fragmentből
     // enélkül nem lépne ki rendesen back gombbal
@@ -56,7 +58,18 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view =  inflater.inflate(R.layout.fragment_home, container, false)
+        view?.apply{
+            initializeView(view)
+        }
+        return view
+    }
+
+    private fun initializeView(view : View) {
+        startQuizButton = view.findViewById(R.id.startQuizButton)
+        startQuizButton.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_quizStart)
+        }
     }
 
     companion object {

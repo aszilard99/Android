@@ -73,8 +73,10 @@ class QuizEndFragment : Fragment() {
         resultTv = view.findViewById(R.id.resTextView)
         var total = myViewModel.getNumOfTotalAnswers()
         var correct = myViewModel.getNumOfCorrectAnswers()
-
-        resultTv.setText("you answered $correct correctly out of $total")
+        //reseting correct answer number
+        myViewModel.setCorrectAnswerNum(0)
+        resultTv.setText("You answered $correct correctly out of $total")
+        myViewModel.checkAndSetHighScore(correct)
 
     }
     companion object {

@@ -32,7 +32,7 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_home2_to_quizStart"
+            android:id="@+id/action_home_to_quizStart"
             app:destination="@id/quizStartFragment" />
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"

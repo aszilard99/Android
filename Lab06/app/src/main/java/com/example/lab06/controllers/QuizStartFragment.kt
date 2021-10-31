@@ -20,8 +20,11 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
+import com.example.lab06.models.MyViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,6 +45,7 @@ class QuizStartFragment : Fragment() {
     lateinit var nameEditText: EditText
     lateinit var contactsButton: Button
 
+    private val myViewModel : MyViewModel by activityViewModels()
     //contact permission code
     private val CONTACT_PERMISSION_CODE = 1;
 
@@ -59,6 +63,8 @@ class QuizStartFragment : Fragment() {
                 moveToFirst()
                 val chosenName = this.getString(getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                 nameEditText.setText(chosenName)
+                myViewModel.setPlayerName(chosenName)
+                myViewModel.resetHighScore()
                 Log.i("xxx", "NAME: $chosenName")
                 close()
             }
@@ -99,6 +105,10 @@ class QuizStartFragment : Fragment() {
         view?.apply {
             initializeView(this)
             registerListeners(this)
+            if (myViewModel.getPlayerName() != ""){
+                contactsButton.setVisibility(View.INVISIBLE)
+                nameEditText.setVisibility(View.INVISIBLE)
+            }
         }
         return view
     }
@@ -129,7 +139,6 @@ class QuizStartFragment : Fragment() {
         nameEditText = view.findViewById(R.id.editTextName)
         startButton = view.findViewById(R.id.startButton)
         contactsButton = view.findViewById(R.id.contactsButton)
-
         contactsButton.setOnClickListener {
             //check permission allowed or not
             if (checkContactPermission()){
