@@ -8,3 +8,93 @@ They provide asynchronous code without thread blocking.
 It's Kotlin's term for class methods.
 These are functions which accept other functions as arguments or return them.
 That's how the automatically generated methods hashCode() and equals() in data classes are called.
+What is "to" in the example: "val test = 12 to 45"?
+An infix extension function creating a Pair(12,45)
+A syntax error
+A Kotlin keyword to create a Range from 12 to 45
+A Kotlin keyword to create a Pair(12,45)
+What is the correct way to declare a variable of "integer" type in Kotlin?
+var i : Int = 42
+let i = 42
+i = 42
+i : Int = 42
+What is the type of "arr" in "val arr = arrayOf(1,2,3)"?
+Array<Int>
+Int[]
+IntArray
+int[]
+What is the equivalent of "int x = a ? b : c" Java expression in Kotlin?
+val x = if (a) b else c
+val x = a ? b : c
+val x = if (a) b : c
+val x = a ?: b, c
+Under which license is Kotlin available?
+Apache 2
+GPL
+MIT
+Kotlin is closed source
+What does a "data class" not offer?
+Automatic conversion from/to JSON
+An auto-generated toString() method
+Auto-Generated hashCode() and equals() methods
+A generated copy(...) method, to create copies of instances
+What does this code "foo()()" do?
+Calls a function which is returned by the call of "foo"
+Fails compilation
+Creates a 2d array
+Calls foo asyncronously
+Which of these targets does Kotlin currently not support?
+LLVM
+JVM
+.NET CLR
+JavaScript
+What parameter specifies the Android API level that Gradle should use to compile your app?
+compileSdkVersion
+minSdkVersion
+targetSdkVersion
+testSdkVersion
+Which of the following is not true about fragments?
+It is not possible to remove a fragment while the activity is running
+A fragment has its own lifecycle and receives its own input events
+A fragment is defined in a Kotlin class
+A fragment's UI is defined in an XML layout file
+___ is a way to restrict direct access to some of an object’s fields.
+Encapsulation
+Score
+LiveData
+GameViewModel
+What is a fragment?
+UI element with its own lifecycle
+A broken piece of glass
+A class with no lifecycle
+Part of a class
+What is an Activity in Android?
+A single, focused thing that the user can do
+A command in Android Studio
+A class without lifecycle
+An interface that has to be implemented
+What does Gradle do in Android?
+It manages dependecies, plugins, it automates building and managing a project or app
+It is keeps track of Activities and Permissions
+It contains the layout xml of an Activity
+It doesn't exist
+What is AndroidManifest.xml good for?
+It contains the app's package name, keeps track of its activities, contains the permissons that the app needs for accessing protected parts
+It is not good for anything
+It is a layout xml file for the project
+It manages the build process of a project
+What is the built in Navigation Component good for in Android
+It helps implementing navigation between activities/fragments, handles Back button pressed action, makes it possible to scope a ViewModel to a navigation graph
+It is not good for anything
+It helps to navigate in Android Studio
+It is a widget that manages an Api to google maps
+What is a view in Android?
+It is a ui component
+It is a way to observe the app
+It is command
+it is part of JVM
+What is a ViewModel good for?
+It stores data that can be seen by multiple fragments, with a lifecycle that survives the destruction of its fragments or activity
+It is a part of the UI
+It helps Gradle to function
+It is not good, it slows down the app
