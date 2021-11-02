@@ -2,8 +2,14 @@ package com.example.lab06
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.example.lab06.controllers.QuizController
+import com.example.lab06.models.MyViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
 
@@ -11,12 +17,26 @@ class MainActivity : AppCompatActivity() {
     lateinit var topAppBar : MaterialToolbar
     lateinit var drawerLayout : DrawerLayout
     lateinit var navigationView : NavigationView
+    lateinit var quizController : QuizController
+    lateinit var myViewModel: MyViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeView()
         initMenu()
+        myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+        quizController = QuizController(this)
+        //loads the questions into the viewmodel
+        initViewModel()
+
+    }
+
+    private fun initViewModel() {
+        myViewModel.setQuestions(quizController.questions)
+        myViewModel.setNumOfTotalAnswers(quizController.totalAnswerNum)
+        Log.d("totalAnswerNum : ", "${quizController.totalAnswerNum}")
     }
 
     private fun initializeView(){

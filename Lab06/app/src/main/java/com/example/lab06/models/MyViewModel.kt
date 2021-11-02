@@ -7,6 +7,23 @@ class MyViewModel : ViewModel() {
     private var highScore = 0
     private var numOfCorrectAnswers = 0
     private var numOfTotalAnswers = 0
+    private var questions  = mutableListOf<Question>()
+    lateinit var iterator : ListIterator<Question>
+
+    fun setQuestions(q : MutableList<Question>){
+        questions = q.toMutableList()
+        iterator = questions.listIterator()
+    }
+    fun resetIterator(){
+        iterator = questions.listIterator()
+    }
+    fun nextQuestion() : Question? {
+        if (!iterator.hasNext()){
+            return null
+        }
+        return iterator.next()
+    }
+
     fun incrementNumOfCorrectAnswers(){
          numOfCorrectAnswers++
     }
@@ -40,5 +57,8 @@ class MyViewModel : ViewModel() {
     }
     fun getHighScore() : Int{
         return highScore
+    }
+    fun shuffleQuestions(){
+        questions.shuffle()
     }
 }

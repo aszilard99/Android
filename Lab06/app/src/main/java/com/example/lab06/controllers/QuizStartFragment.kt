@@ -21,7 +21,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
@@ -45,7 +47,7 @@ class QuizStartFragment : Fragment() {
     lateinit var nameEditText: EditText
     lateinit var contactsButton: Button
 
-    private val myViewModel : MyViewModel by activityViewModels()
+    private lateinit var myViewModel : MyViewModel
     //contact permission code
     private val CONTACT_PERMISSION_CODE = 1;
 
@@ -105,13 +107,21 @@ class QuizStartFragment : Fragment() {
         view?.apply {
             initializeView(this)
             registerListeners(this)
-            if (myViewModel.getPlayerName() != ""){
+
+            //getting the reference to the activity's viewModel
+            myViewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+            if (myViewModel.getPlayerName() != "") {
                 contactsButton.setVisibility(View.INVISIBLE)
                 nameEditText.setVisibility(View.INVISIBLE)
             }
         }
         return view
     }
+
+    /*private fun initViewModel(view : View) {
+        val quizController = QuizController(view)
+        myViewModel.setQuestions(quizController.questions)
+    }*/
 
     private fun registerListeners(view: View){
         startButton.setOnClickListener{

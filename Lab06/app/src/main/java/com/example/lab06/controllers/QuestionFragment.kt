@@ -12,6 +12,8 @@ import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
@@ -41,8 +43,9 @@ class QuestionFragment : Fragment() {
     lateinit var nextQuestionButton : Button
     lateinit var question: Question
     lateinit var layout : RelativeLayout
+    private val questionNum = 4
 
-    private val myViewModel : MyViewModel by activityViewModels()
+    private lateinit var myViewModel : MyViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -76,6 +79,8 @@ class QuestionFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_question, container, false)
         view?.apply {
+            Log.d("xxx", "QuestionFragment onCreateView ran down")
+            myViewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
             initializeQuestionFragment(this)
 
         }
@@ -84,11 +89,9 @@ class QuestionFragment : Fragment() {
 
     @SuppressLint("ResourceType")
     private fun initializeQuestionFragment(view : View) {
-        quizController = QuizController(view)
-        quizController.shuffleQuestions()
+        //quizController = QuizController(view)
+        //quizController.shuffleQuestions()
         Log.d("questions","shuffled")
-        myViewModel.setNumOfTotalAnswers(quizController.totalAnswerNum)
-        Log.d("totalAnswerNum : ", "${quizController.totalAnswerNum}")
         questionTextView = view.findViewById(R.id.questionTextView)
 
         layout = view.findViewById(R.id.layout)
@@ -125,7 +128,7 @@ class QuestionFragment : Fragment() {
 
         nextQuestionButton = view.findViewById(R.id.nextQuestionButton)
 
-        val tempQuestion = quizController.nextQuestion()
+        val tempQuestion = myViewModel.nextQuestion()
         if (tempQuestion == null){
             startQuizEndFragment()
         }
@@ -151,9 +154,12 @@ class QuestionFragment : Fragment() {
 
     private fun showNextQuestion(){
         evaluateAnswer()
-        val tmp = quizController.nextQuestion()
-        if (tmp == null){
+
+        val tmp = myViewModel.nextQuestion()
+        if (tmp == null || myViewModel.iterator.nextIndex() > questionNum){
             startQuizEndFragment()
+            myViewModel.resetIterator()
+            myViewModel.shuffleQuestions()
         }
         else {
             question = tmp

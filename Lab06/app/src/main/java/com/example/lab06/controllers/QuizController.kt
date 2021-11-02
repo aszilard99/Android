@@ -1,22 +1,23 @@
 package com.example.lab06.controllers
 
+import android.app.Activity
 import android.util.Log
 import android.view.View
 import com.example.lab06.R
 import com.example.lab06.models.Answer
 import com.example.lab06.models.Question
+import com.example.lab06.models.MyViewModel
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 
-class QuizController(var view: View) {
+class QuizController(var activity: Activity) {
     val questions = mutableListOf<Question>()
     var iterator: ListIterator<Question>
     var totalAnswerNum = 0
-
     init{
-        val isreader : InputStream = view.resources.openRawResource(R.raw.questions)
+        val isreader : InputStream = activity.resources.openRawResource(R.raw.questions)
         val reader = BufferedReader(InputStreamReader(isreader))
         Log.d("Input", "reading starts here")
         while(true){
