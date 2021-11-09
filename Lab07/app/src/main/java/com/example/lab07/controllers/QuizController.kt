@@ -52,9 +52,9 @@ class QuizController(var activity: Activity) {
                 val answer4 = Answer(line, false)
                 Log.d("input answer", answer4.answer)
                 val answerList = mutableListOf(answer1, answer2, answer3, answer4)
-                val q = Question(question, answerList)
+                //val q = Question(question, answerList)
                 increaseCorrectAnswerNum()
-                questions.add(q)
+                //questions.add(q)
             }catch(e:IOException){
                 e.printStackTrace()
             }
