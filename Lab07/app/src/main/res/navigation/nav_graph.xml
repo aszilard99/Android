@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/quizStartFragment"
-        android:name="com.example.lab06.controllers.QuizStartFragment"
+        android:name="com.example.lab07.controllers.QuizStartFragment"
         android:label="fragment_quiz_start"
         tools:layout="@layout/fragment_quiz_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
-        android:name="com.example.lab06.controllers.QuestionFragment"
+        android:name="com.example.lab07.controllers.QuestionFragment"
         android:label="fragment_question"
         tools:layout="@layout/fragment_question" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.lab06.controllers.Home"
+        android:name="com.example.lab07.controllers.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/quizEndFragment"
-        android:name="com.example.lab06.controllers.QuizEndFragment"
+        android:name="com.example.lab07.controllers.QuizEndFragment"
         android:label="fragment_quiz_end"
         tools:layout="@layout/fragment_quiz_end" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.lab06.controllers.ProfileFragment"
+        android:name="com.example.lab07.controllers.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/questionListFragment"
-        android:name="com.example.lab06.QuestionListFragment"
+        android:name="com.example.lab07.QuestionListFragment"
         android:label="fragment_question_list2"
         tools:layout="@layout/fragment_question_list" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/questionDetailFragment"
-        android:name="com.example.lab06.QuestionDetailFragment"
+        android:name="com.example.lab07.QuestionDetailFragment"
         android:label="fragment_question_detail"
         tools:layout="@layout/fragment_question_detail" >
         <action

@@ -1,4 +1,4 @@
-package com.example.lab06.controllers
+package com.example.lab07.controllers
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
-import com.example.lab06.R
+import com.example.lab07.R
 
 
 class Home : Fragment() {

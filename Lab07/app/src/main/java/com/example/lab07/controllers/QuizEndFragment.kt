@@ -1,4 +1,4 @@
-package com.example.lab06.controllers
+package com.example.lab07.controllers
 
 import android.content.Context
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import com.example.lab06.R
-import com.example.lab06.models.MyViewModel
+import com.example.lab07.R
+import com.example.lab07.models.MyViewModel
 import androidx.activity.OnBackPressedCallback
 
 import androidx.navigation.fragment.findNavController

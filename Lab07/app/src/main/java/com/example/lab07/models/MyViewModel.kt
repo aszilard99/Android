@@ -1,4 +1,4 @@
-package com.example.lab06.models
+package com.example.lab07.models
 
 import androidx.lifecycle.ViewModel
 
