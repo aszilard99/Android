@@ -1,6 +1,8 @@
 package com.example.lab06.controllers
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
@@ -20,6 +22,18 @@ import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
 import com.example.lab06.models.Question
 import java.lang.reflect.Type
+import android.widget.Toast
+
+//import androidx.test.core.app.ApplicationProvider.getApplicationContext
+
+import android.content.DialogInterface
+//import androidx.test.core.app.ApplicationProvider.getApplicationContext
+
+
+
+
+
+
 
 
 class QuestionFragment : Fragment() {
@@ -44,8 +58,9 @@ class QuestionFragment : Fragment() {
             true // default to enabled
         ) {
             override fun handleOnBackPressed() {
-                findNavController().navigate(R.id.action_questionFragment_to_quizStart)
-                myViewModel.setCorrectAnswerNum(0)
+                createAlertDialog()
+                /*findNavController().navigate(R.id.action_questionFragment_to_quizStart)
+                myViewModel.setCorrectAnswerNum(0)*/
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -218,5 +233,28 @@ class QuestionFragment : Fragment() {
     }
 
 
+    fun createAlertDialog(){
+        var builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Alert")
+        builder.setMessage("Do you want to see the End Results?")
+
+        builder.setPositiveButton("End Results",
+            DialogInterface.OnClickListener { dialogInterface, i -> // User clicked OK button
+                dialogInterface.dismiss()
+                findNavController().navigate(R.id.action_questionFragment_to_quizEndFragment)
+            })
+        builder.setNegativeButton("Go Back",
+            DialogInterface.OnClickListener { dialogInterface, i -> // User clicked OK button
+                dialogInterface.dismiss()
+                findNavController().navigate(R.id.action_questionFragment_to_quizStart)
+                myViewModel.setCorrectAnswerNum(0)
+            })
+
+        //create an AlertDialog
+        val alertDialog = builder.create()
+
+        //display the dialog on screen
+        alertDialog.show()
+    }
 
 }
