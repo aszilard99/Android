@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_homeFragment_to_questionListFragment"
             app:destination="@id/questionListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_questionAddFragment"
+            app:destination="@id/questionAddFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizEndFragment"
@@ -83,5 +86,10 @@
             android:id="@+id/action_questionDetailFragment_to_questionListFragment"
             app:destination="@id/questionListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/questionAddFragment"
+        android:name="com.example.lab06.QuestionAddFragment"
+        android:label="fragment_question_add"
+        tools:layout="@layout/fragment_question_add" />
 
 </navigation>

@@ -37,4 +37,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startQuizButton" />
+
+    <Button
+        android:id="@+id/homeQuestionAddB"
+        android:layout_width="184dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="30dp"
+        android:text="Add Question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionListButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

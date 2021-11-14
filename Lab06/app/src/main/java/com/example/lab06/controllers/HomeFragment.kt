@@ -13,11 +13,10 @@ import com.example.lab06.R
 
 
 class Home : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
     lateinit var startQuizButton : Button
     lateinit var questionListButton : Button
+    lateinit var questionAddButton : Button
     // a fragmenteknek saját viselkedést adtam a back gomb megnyomásakor, és
     // valószínűleg a back stacken emiatt kavarodás van és a home fragmentből
     // enélkül nem lépne ki rendesen back gombbal
@@ -52,11 +51,15 @@ class Home : Fragment() {
     private fun initializeView(view : View) {
         startQuizButton = view.findViewById(R.id.startQuizButton)
         questionListButton = view.findViewById(R.id.questionListButton)
+        questionAddButton = view.findViewById(R.id.homeQuestionAddB)
         startQuizButton.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_quizStart)
         }
         questionListButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_questionListFragment)
+        }
+        questionAddButton.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_questionAddFragment)
         }
     }
 

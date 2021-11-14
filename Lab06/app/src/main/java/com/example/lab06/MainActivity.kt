@@ -60,6 +60,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.homeFragment)
                 R.id.quizMenuItem -> Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.quizStartFragment)
                 R.id.profileMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.profileFragment)
+                R.id.questionAddMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.questionAddFragment)
+                R.id.questionListMenuItem -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.questionListFragment)
             }
             menuItem.setChecked(false)
             drawerLayout.close()
