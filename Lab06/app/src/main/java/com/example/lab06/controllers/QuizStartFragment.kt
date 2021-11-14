@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AppCompatActivity
@@ -28,21 +29,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [QuizStartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 
 class QuizStartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
     lateinit var startButton: Button
     lateinit var nameEditText: EditText
     lateinit var contactsButton: Button
@@ -74,14 +63,6 @@ class QuizStartFragment : Fragment() {
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(
@@ -110,10 +91,10 @@ class QuizStartFragment : Fragment() {
 
             //getting the reference to the activity's viewModel
             myViewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
-            if (myViewModel.getPlayerName() != "") {
+            /*if (myViewModel.getPlayerName() != "") {
                 contactsButton.setVisibility(View.INVISIBLE)
                 nameEditText.setVisibility(View.INVISIBLE)
-            }
+            }*/
         }
         return view
     }
@@ -126,7 +107,22 @@ class QuizStartFragment : Fragment() {
     private fun registerListeners(view: View){
         startButton.setOnClickListener{
             //Log.i(ContentValues.TAG, playerName.text.toString())
-            findNavController().navigate(R.id.action_quizStart_to_questionFragment)
+            if (nameEditText.text.toString() != ""){
+                myViewModel.setPlayerName(nameEditText.text.toString())
+                myViewModel.resetHighScore()
+            }
+
+            if (myViewModel.getPlayerName() != "") {
+
+                findNavController().navigate(R.id.action_quizStart_to_questionFragment)
+            }
+            else{
+                val toast = Toast.makeText(requireContext(), "type in a name", Toast.LENGTH_LONG)
+                toast.show()
+
+            }
+
+
         }
     }
 
@@ -177,23 +173,5 @@ class QuizStartFragment : Fragment() {
 
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment QuizStart.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            QuizStartFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

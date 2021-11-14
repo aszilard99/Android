@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
         quizController = QuizController(this)
         //loads the questions into the viewmodel
+
         initViewModel()
 
     }
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         myViewModel.setQuestions(quizController.questions)
         myViewModel.setNumOfTotalAnswers(quizController.totalAnswerNum)
         Log.d("totalAnswerNum : ", "${quizController.totalAnswerNum}")
+        Log.d("xxx", " initializing viewmodel in MainActivity")
     }
 
     private fun initializeView(){
