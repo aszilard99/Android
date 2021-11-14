@@ -2,6 +2,7 @@ package com.example.lab06.controllers
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -18,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.lab06.R
 import com.example.lab06.models.MyViewModel
 import com.example.lab06.models.Question
+import java.lang.reflect.Type
 
 
 class QuestionFragment : Fragment() {
@@ -75,26 +77,46 @@ class QuestionFragment : Fragment() {
         //quizController.shuffleQuestions()
         Log.d("questions","shuffled")
         questionTextView = view.findViewById(R.id.questionTextView)
-
+        questionTextView.textSize = 18f
+        //var params0 = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        //params0.setMargins(50,50,50,0)
+       //questionTextView.layoutParams = params0
+        //questionTextView.setTypeface(null, Typeface.BOLD)
         layout = view.findViewById(R.id.layout)
 
         radioGroup = RadioGroup(view.context)
         radioGroup.layoutParams
 
+
+
+        var params1 = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        params1.setMargins(25,125,50,0)
+
         rButton0 = RadioButton(view.context)
-        rButton0.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        rButton0.layoutParams = params1
+
+        rButton0.textSize = 16f
+        rButton0.setTypeface(null, Typeface.BOLD)
         rButton0.id = 0
 
         rButton1 = RadioButton(view.context)
-        rButton1.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        rButton1.textSize = 16f
+        rButton1.setTypeface(null, Typeface.BOLD)
+        rButton1.layoutParams = params1
         rButton1.id = 1
 
         rButton2 = RadioButton(view.context)
-        rButton2.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        rButton2.textSize = 16f
+        rButton2.setTypeface(null, Typeface.BOLD)
+        rButton2.layoutParams = params1
         rButton2.id = 2
 
         rButton3 = RadioButton(view.context)
-        rButton3.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+
+        rButton3.layoutParams = params1
+        rButton3.textSize = 16f
+        rButton3.setTypeface(null, Typeface.BOLD)
         rButton3.id = 3
 
         val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
